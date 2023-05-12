@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon.ico" sizes="any">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js" defer></script>
+    <title>Visionneuse</title>
+</head>
+<body>
+    <div id="page">
+        <header>
+            <nav>
+                <div class="centre">
+                    <a href="index.html">Visionneuse</a> / <a href="formulaire.html">Formulaire</a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <img id="bigImage" src="images/normal/1.png" alt="image">
+            <ul>
+                <li><img class="thumb active" src="images/thumb/1.png" alt="vignette 1"></li>
+                <li><img class="thumb" src="images/thumb/2.png" alt="vignette 2"></li>
+                <li><img class="thumb" src="images/thumb/3.png" alt="vignette 3"></li>
+                <li><img class="thumb" src="images/thumb/4.png" alt="vignette 4"></li>
+                <li><img class="thumb" src="images/thumb/5.png" alt="vignette 5"></li>
+                <li><img class="thumb" src="images/thumb/6.png" alt="vignette 6"></li>
+            </ul>
+            <button id="preBtn">Précédent</button>
+            <button id="btnStop">Arrêter</button>
+            <button id="btnNext">Suivant</button>
+            Speed:
+            <select name="speed" id="speed">
+                <option value="1500">Lent</option>
+                <option value="1000">Moyen</option>
+                <option value="500">Rapide</option>
+            </select>
+        </main>
+    </div>
+</body>
+</html>
