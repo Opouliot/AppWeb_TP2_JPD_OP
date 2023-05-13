@@ -13,18 +13,11 @@
 </head>
 <body>
     <div id="page">
-        <header>
-            <nav>
-                <div class="centre">
-                    <a href="index.html">Visionneuse</a> / <a href="formulaire.html">Formulaire</a>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <select name="moviesList" id="moviesList">
-
-            </select>
-            <div class="container">
+        <select name="moviesList" id="moviesList">
+            <option value="0">Choisir un Film Épique!</option>
+        </select>
+        <div id="visionneuse" class="invisible">
+            <div>
                 <img id="bigImage" src="" alt="image">
             </div>
             
@@ -37,7 +30,9 @@
                 <option value="1000">Moyen</option>
                 <option value="500">Rapide</option>
             </select>
-        </main>
+        </div>
+        
+        
     </div>
 </body>
 </html>

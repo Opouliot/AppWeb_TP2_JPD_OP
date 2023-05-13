@@ -16,7 +16,7 @@ let speed = 1500;
 let nextSpeed = 1500;
 let timerActivated = true;
 
-let planetsImage = ["alderaan", "coruscant", "dagobah", "endor", "hoth", "tatooine", "yavin4", "naboo"]
+let planetsImage = []
 
 let timer = setInterval(()=>{ next() }, speed);
 
@@ -28,15 +28,19 @@ preBtn.addEventListener("click", btnPreClick)
 ddmSpeed.addEventListener("change", speedChange)
 
 moviesList.addEventListener("change", (event) =>{
-    if(event.target.value == 0) return;
+    if(event.target.value == 0){
+        document.getElementById("visionneuse").classList.add("invisible");
+        return;
+    }
     let movieId = event.target.value;
     getPlanetFromFilm(movieId).then(planets => {
         planetsImage = [];
+        current = 0;
         planets.forEach(planet => {
-            console.log(planet.name.toLowerCase());
             planetsImage.push(planet.name.toLowerCase());
         });
-        console.log(planetsImage);
+        document.getElementById("visionneuse").classList.remove("invisible");
+        bigImage.src = imagePath + planetsImage[0] + imgType;
     });
 });
 
@@ -52,17 +56,20 @@ function resetTimer(){
 }
 
 function setImgTo(nbr){
-    bigImage.src = imagePath + planetsImage[nbr] + imgType;
-    current = nbr;
+    if(planetsImage.length > 0){
+        bigImage.src = imagePath + planetsImage[nbr] + imgType;
+        current = nbr;
+    }
+    
 }
 
 function btnNextClick(e){
-    setImgTo((current+1)%6);
+    setImgTo((current+1)%planetsImage.length);
     if(timerActivated) resetTimer();
 }
 
 function btnPreClick(e){
-    let index = (current-1)%6;
+    let index = (current-1)%planetsImage.length;
     if(index == -1) index = 5;
     setImgTo(index);
     if(timerActivated) resetTimer();
@@ -83,6 +90,8 @@ function btnStopClick(e){
 
 function speedChange(e){
     nextSpeed = e.target.value;
+    clearInterval(timer)
+    timer = setInterval(()=>{ next() }, nextSpeed);
 }
 
 async function get(url){
@@ -145,7 +154,7 @@ async function getPlanetFromFilm(filmId){
 function updateMoviesList()
 {
     let moviesList = document.getElementById("moviesList");
-    moviesList.innerHTML = "";
+    //moviesList.innerHTML = "";
 
     getFilmsTitle()
     .then(titles => {
