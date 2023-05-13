@@ -87,7 +87,10 @@ moviesList.addEventListener("change", (event) => {
     if(event.target.value == 0) return;
     let movieId = event.target.value;
     getPlanetFromFilm(movieId).then(planets => {
-        console.log(planets);
+        planetsImage = [];
+        planets.forEach(planet => {
+            planetsImage.push(planet.name.toLowerCase());
+        });
     });
 });
 
