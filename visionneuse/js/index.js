@@ -1,8 +1,7 @@
-const imagePath = "images/normal/";
-const imgType = ".png";
+const imagePath = "images/";
+const imgType = ".jpg";
 
 let bigImage = document.getElementById("bigImage");
-let thumbs = document.getElementsByClassName("thumb");
 
 let nextBtn = document.getElementById("btnNext");
 let preBtn = document.getElementById("preBtn");
@@ -14,19 +13,16 @@ let speed = 1500;
 let nextSpeed = 1500;
 let timerActivated = true;
 
+let planets = ["alderaan", "coruscant", "dagobah", "endor", "hoth", "tatooine", "yavin4", "naboo"]
+
 let timer = setInterval(()=>{ next() }, speed);
+
+setImgTo(current);
 
 btnStop.addEventListener("click", btnStopClick)
 nextBtn.addEventListener("click", btnNextClick)
 preBtn.addEventListener("click", btnPreClick)
 ddmSpeed.addEventListener("change", speedChange)
-
-for(let i = 0; i < thumbs.length; i++){
-    thumbs[i].addEventListener("click", ()=>{
-        setImgTo(i);
-        if(timerActivated) resetTimer();
-    })
-}
 
 function next(){
     setImgTo((current+1)%6);
@@ -38,9 +34,7 @@ function resetTimer(){
 }
 
 function setImgTo(nbr){
-    bigImage.src = imagePath + (nbr+1) + imgType;
-    thumbs[current].classList.remove("active");
-    thumbs[nbr].classList.add("active");
+    bigImage.src = imagePath + planets[nbr] + imgType;
     current = nbr;
 }
 

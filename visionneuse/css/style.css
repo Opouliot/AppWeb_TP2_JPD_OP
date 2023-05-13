@@ -44,3 +44,8 @@ li{
 .invisible {
     display: none;
 }
+
+#bigimage {
+    width: 100%;
+    height: 100%;
+}
