@@ -27,22 +27,23 @@ nextBtn.addEventListener("click", btnNextClick)
 preBtn.addEventListener("click", btnPreClick)
 ddmSpeed.addEventListener("change", speedChange)
 
-moviesList.addEventListener("change", (event) => {
+moviesList.addEventListener("change", (event) =>{
     if(event.target.value == 0) return;
     let movieId = event.target.value;
     getPlanetFromFilm(movieId).then(planets => {
-        console.log(planets);
         planetsImage = [];
         planets.forEach(planet => {
+            console.log(planet.name.toLowerCase());
             planetsImage.push(planet.name.toLowerCase());
         });
+        console.log(planetsImage);
     });
 });
 
 updateMoviesList();
 
 function next(){
-    setImgTo((current+1)%6);
+    setImgTo((current+1)%planetsImage.length);
 }
 
 function resetTimer(){
