@@ -41,7 +41,7 @@ function FillTitleList(p_filmList)
     }
 }
 
-async function getPlanetNames(p_filmId)
+async function getPlanetsName(p_filmId)
 {
 
     
@@ -50,9 +50,8 @@ async function getPlanetNames(p_filmId)
             let addressPlanets = [];
             console.log(data);
             addressPlanets.push(data.results[p_filmId].planets);
-            console.log(planets);
             return addressPlanets;
-        }).then(planets => fetch();
+        }).then(planets => fetch(planets[0][0]));
 }
-getPlanetNames(1);
+getPlanetsName(1);
 getFilmsTitle();
