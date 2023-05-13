@@ -6,25 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.ico" sizes="any">
     <link rel="stylesheet" href="css/style.css">
-    <!-- <script src="js/index.js" defer></script> -->
-    <!-- <script src="js/api.js" defer></script> -->
-    <script src="js/test.js" defer></script>
+    <script src="js/index.js" defer></script>
     <title>Visionneuse</title>
 </head>
 <body>
     <div id="page">
-        <header>
-            <nav>
-                <div class="centre">
-                    <a href="index.html">Visionneuse</a> / <a href="formulaire.html">Formulaire</a>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <select name="moviesList" id="moviesList">
-
-            </select>
-            <div class="container">
+        <select name="moviesList" id="moviesList">
+            <option value="0">Choisir un Film Épique!</option>
+        </select>
+        <div id="visionneuse" class="invisible">
+            <div>
                 <img id="bigImage" src="" alt="image">
             </div>
             
@@ -37,7 +28,9 @@
                 <option value="1000">Moyen</option>
                 <option value="500">Rapide</option>
             </select>
-        </main>
+        </div>
+        
+        
     </div>
 </body>
 </html>
