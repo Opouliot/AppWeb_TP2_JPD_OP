@@ -12,40 +12,19 @@ let requestOptions = {
   headers: headerOli
 };
 
-// async function get(p_url, p_requestOptions){
-//     return fetch(p_url, p_requestOptions)
-//     .then(response => response.json());
-// }
-
-// async function getResults(p_url, p_requestOptions){
-//     return get(p_url, p_requestOptions)
-//     .then(data => data.results);
-// }
-
-// async function getCurencies(){
-//     return getResults(currencyURL + "/symbols", requestOptions)
-//     .then(data => console.log(data));
-// }
-
-
-
 function updateCurrencyList(){
     let moneylist = document.getElementById("moneyType");
 
     getCurrencies().then(currencies => {
 
         currencies.forEach((currency,i) => {
-            //console.log(currency);
             let option = document.createElement("option");
             option.text = currency[1];
             option.value = currency[0];
             moneylist.appendChild(option);
-            //i++;
         });
     });
 }
-
-// getCurencies();
 
 async function getCurrencies()
 {

@@ -6,23 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.ico" sizes="any">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/index.js" defer></script>
-    <script src="js/indexOli.js" defer></script>
+    <!-- <script src="js/indexOli.js" defer></script> -->
     <title>Prix Essence</title>
 </head>
 <body>
     <div id="page">
         <div>
-            <label for="money">Type de monnaie</label>
+            <label for="moneyType">Type de monnaie</label>
             <select name="moneyType" id="moneyType">
-                <option value="">Choisir un type de monnaie</option>
             </select>
         </div>
 
         <div>
             <label for="state">Pays</label>
             <select name="usState" id="usState">
-                <option value="0">Choisir un état américain</option>
                 <option value="EMM_EPM0_PTE_SNY_DPG">New York</option>
                 <option value="EMM_EPM0_PTE_SCA_DPG">Californie</option>
                 <option value="EMM_EPM0_PTE_SFL_DPG">Floride</option>
@@ -32,17 +31,29 @@
             </select>
         </div>
 
+        <div>
+            <label for="frequency">Frequence</label>
+            <select name="frequency" id="frequency">
+                <option value="monthly">Monthly</option>
+                <option value="annual">Annual</option>
+            </select>
+        </div>
+
         <div>    
             <label for="dateStart">Date de départ</label>
-            <input type="month" name="dateStart" id="dateStart">
+            <input type="month" name="dateStart" id="dateStart" value="2000-01">
         </div>
 
         <div>  
             <label for="dateEnd">Date de fin</label>
-            <input type="month" name="dateEnd" id="dateEnd">
+            <input type="month" name="dateEnd" id="dateEnd" value="2023-05">
         </div>
 
-        <div></div>
+        <div>
+            <button id="Valider">Valider</button>
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
 
     </div>
 </body>
