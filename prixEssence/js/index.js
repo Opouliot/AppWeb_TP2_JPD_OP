@@ -1,25 +1,15 @@
 "use strict";
 
+//Si jamais une clé ne fonctionne plus(trop d'appel à l'API), nous avons une deuxième clé
+
 const Petro_APIKey = "8awCTdcdf58HQdCSpwsvuBeb5uMA4cPNUGWZUFIV";
-const Currency_APIKey = "Pwfp8RryQbAVlzmT4LgPg1Izds1GR3lD";
-
-/*
-// EMM_EPM0_PTE_SNY_DPG New York
-// EMM_EPM0_PTE_SCA_DPG California
-// EMM_EPM0_PTE_SCO_DPG Colorado
-// EMM_EPM0_PTE_SFL_DPG Florida
-// EMM_EPM0_PTE_SMA_DPG Massachusetts
-// EMM_EPM0_PTE_SMI_DPG Michigan
-// EMM_EPM0_PTE_SPA_DPG Pennsylvania
-// EMM_EPM0_PTE_STX_DPG Texas
-// EMM_EPM0_PTE_SWA_DPG Washington
-*/
-
-let currentCurrency = "USD";
-const ctx = document.getElementById('myChart');
+const JP_Currency_APIKey = "Pwfp8RryQbAVlzmT4LgPg1Izds1GR3lD";
 
 const Oli_Currency_APIKey = "zlz2fZlvu0BkJc1IfiOtWr8VfaV9a2wF";
 const currencyURL = "https://api.apilayer.com/exchangerates_data"
+
+let currentCurrency = "USD";
+const ctx = document.getElementById('myChart');
 
 let headerOli = new Headers();
 headerOli.append("apikey", "zlz2fZlvu0BkJc1IfiOtWr8VfaV9a2wF");
@@ -30,15 +20,21 @@ let requestOptions = {
   headers: headerOli
 };
 
-/*
-document.getElementById("moneyType").addEventListener("change", function(){
-    convertCurrency(1).then(result => console.log(result));
+
+let chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: "Prix de l'essence",
+            data: []
+        }]
+    }
 });
-*/
 
 updateCurrencyList();
 
-document.getElementById("Valider").addEventListener("click", function(){
+document.getElementById("submit").addEventListener("click", function(){
     updateChart();
 });
 
@@ -60,16 +56,6 @@ function updateChart(){
     });
 }
 
-let chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: [],
-        datasets: [{
-            label: "Prix de l'essence",
-            data: []
-        }]
-    }
-});
 
 async function getPetro(frequency = "monthly", series = "EMM_EPM0_PTE_SNY_DPG", start = "1990", end = "2024"){
     return fetch(

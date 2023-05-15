@@ -29,7 +29,7 @@ ddmSpeed.addEventListener("change", speedChange)
 
 moviesList.addEventListener("change", (event) =>{
     if(event.target.value == 0){
-        document.getElementById("visionneuse").classList.add("invisible");
+        document.getElementById("viewer").classList.add("invisible");
         return;
     }
     let movieId = event.target.value;
@@ -39,7 +39,7 @@ moviesList.addEventListener("change", (event) =>{
         planets.forEach(planet => {
             planetsImage.push(planet.name.toLowerCase());
         });
-        document.getElementById("visionneuse").classList.remove("invisible");
+        document.getElementById("viewer").classList.remove("invisible");
         bigImage.src = imagePath + planetsImage[0] + imgType;
     });
 });
@@ -59,6 +59,8 @@ function setImgTo(nbr){
     if(planetsImage.length > 0){
         bigImage.src = imagePath + planetsImage[nbr] + imgType;
         current = nbr;
+        let planet = planetsImage[nbr].charAt(0).toUpperCase() + planetsImage[nbr].slice(1);
+        document.getElementById("planetName").textContent = planet;
     }
     
 }
@@ -154,7 +156,6 @@ async function getPlanetFromFilm(filmId){
 function updateMoviesList()
 {
     let moviesList = document.getElementById("moviesList");
-    //moviesList.innerHTML = "";
 
     getFilmsTitle()
     .then(titles => {
@@ -166,12 +167,3 @@ function updateMoviesList()
         });
     });
 }
-
-//getFilm(1).then(films => console.log(films));
-// getFilms().then(films => console.log(films));
-// getFilmsTitle().then(titles => console.log(titles));
-// getPlanets().then(planets => console.log(planets));
-// getPlanetsName().then(names => console.log(names));
-
-// getPlanetFromFilm(1).then(planets => console.log(planets));
-
