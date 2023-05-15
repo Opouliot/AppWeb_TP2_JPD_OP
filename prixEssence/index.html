@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon.ico" sizes="any">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/index.js" defer></script>
+    <title>Prix Essence</title>
+</head>
+<body>
+    <div id="page">
+        <div>
+            <label for="moneyType">Devise</label>
+            <select name="moneyType" id="moneyType">
+            </select>
+        </div>
+
+        <div>
+            <label for="state">État</label>
+            <select name="usState" id="usState">
+                <option value="EMM_EPM0_PTE_SNY_DPG">New York</option>
+                <option value="EMM_EPM0_PTE_SCA_DPG">Californie</option>
+                <option value="EMM_EPM0_PTE_SFL_DPG">Floride</option>
+                <option value="EMM_EPM0_PTE_SCO_DPG">Colorado</option>
+                <option value="EMM_EPM0_PTE_SMA_DPG">Massachusetts</option>
+                <option value="EMM_EPM0_PTE_STX_DPG">Texas</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="frequency">Fréquence</label>
+            <select name="frequency" id="frequency">
+                <option value="monthly">Mensuelle</option>
+                <option value="annual">Annuelle</option>
+            </select>
+        </div>
+
+        <div>    
+            <label for="dateStart">Date de départ</label>
+            <input type="month" name="dateStart" id="dateStart" value="2000-01">
+        </div>
+
+        <div>  
+            <label for="dateEnd">Date de fin</label>
+            <input type="month" name="dateEnd" id="dateEnd" value="2023-05">
+        </div>
+
+        <div>
+            <button id="submit">Valider</button>
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
+
+    </div>
+</body>
+</html>
