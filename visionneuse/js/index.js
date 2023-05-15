@@ -2,6 +2,7 @@ const imagePath = "images/";
 const imgType = ".jpg";
 
 const statWarsApiUrl = "https://swapi.dev/api";
+const starWarsAPIUrlBackup = "https://web.archive.org/web/20230208062215/https://swapi.dev/api"
 
 let bigImage = document.getElementById("bigImage");
 let moviesList = document.getElementById("moviesList");
